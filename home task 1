@@ -1,0 +1,24 @@
+let number1 = parseFloat(prompt("Enter the first number:"));
+let number2 = parseFloat(prompt("Enter the second number:"));
+console.log("User Input Number 2:", number2);
+let num1 = 20;
+let num2 = 2;
+console.log("Hardcoded Number 1:", num1);
+console.log("Hardcoded Number 2:", num2);
+let sum = num1 + num2;
+let difference = num1 - num2;
+let product = num1 * num2;
+let quotient = num2 !== 0 ? (num1 / num2) : "Division by zero error";
+let remainder = num2 !== 0 ? (num1 % num2) : "Modulo by zero error";
+const addSymbol = "+";
+const subSymbol = "-";
+const mulSymbol = "*";
+const divSymbol = "/";
+const modSymbol = "%";
+console.log("=== Simple Calculator Results ===");
+console.log(`Addition (${num1} ${addSymbol} ${num2}): ${sum}`);
+console.log(`Subtraction (${num1} ${subSymbol} ${num2}): ${difference}`);
+console.log(`Multiplication (${num1} ${mulSymbol} ${num2}): ${product}`);
+console.log(`Division (${num1} ${divSymbol} ${num2}): ${quotient}`);
+console.log(`Modulo (${num1} ${modSymbol} ${num2}): ${remainder}`);
+
