@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Task Manager</h3>
+  <button onclick="addTask('Task 1', showTasks)">Add Task</button>
+  <button onclick="addMultipleTasks('A', 'B', 'C')">Add Multiple</button>
+
+  <script>
+    let tasks = [];
+
+    function addTask(task, cb) {
+      tasks.push(task);
+      cb();
+    }
+
+    function showTasks() {
+      console.log("Tasks:", tasks);
+    }
+
+    const removeTask = (task) => {
+      tasks = tasks.filter(t => t !== task);
+    };
+
+    function addMultipleTasks(...args) {
+      args.forEach(t => addTask(t, () => {}));
+      showTasks();
+    }
+
+    function scopeDemo() {
+      let local = "local";
+      global = "global";
+      console.log(local);
+    }
+
+    scopeDemo();
+    console.log(global); 
+  </script>
+</body>
+</html>
