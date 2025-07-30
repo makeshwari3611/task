@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Shopping Cart</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  <pre id="output"></pre>
+
+  <script>
+  
+    let products = [
+      { id: 1, name: 'Laptop', price: 1000, quantity: 2 },
+      { id: 2, name: 'Phone', price: 500, quantity: 0 },
+      { id: 3, name: 'Headphones', price: 100, quantity: 5 }
+    ];
+    const availableProducts = products.filter(p => p.quantity > 0);
+
+    const totalValue = availableProducts.reduce((total, product) => {
+      return total + (product.price * product.quantity);
+    }, 0);
+
+    let slicedProducts = products.slice(); 
+    splice(1, 1); 
+
+    const updatedProduct = { ...products[0], quantity: 3 };
+    const newProducts = [updatedProduct, ...products.slice(1)];
+
+    
+    const productWithMethod = {
+      id: 4,
+      name: 'Mouse',
+      price: 25,
+      quantity: 3,
+      printDetails() {
+        return `Product: ${this.name}, Price: $${this.price}, Quantity: ${this.quantity}`;
+      }
+    };
+
+    
+    const { name, price, quantity } = productWithMethod;
+
+    
+    const output = document.getElementById('output');
+    output.textContent = `
+Available Products:
+${availableProducts.map(p => `${p.name} (${p.quantity})`).join('\n')}
+
+Total Cart Value: $${totalValue}
+
+Products after splice():
+${slicedProducts.map(p => p.name).join(', ')}
+
+Updated Products (spread operator):
+${newProducts.map(p => `${p.name}: ${p.quantity}`).join('\n')}
+
+Product with Method:
+${productWithMethod.printDetails()}
+
+Destructured Product:
+Name: ${name}, Price: $${price}, Quantity: ${quantity}
+`;
+  </script>
+</body>
+</html>

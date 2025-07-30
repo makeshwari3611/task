@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu-Driven Calculator</title>
+</head>
+<body>
+  <script>
+  
+    let choice;
+
+    do {
+      choice = prompt(
+        "Calculator Menu:\n" +
+        "1. Add\n" +
+        "2. Subtract\n" +
+        "3. Multiply\n" +
+        "4. Divide\n" +
+        "5. Exit\n" +
+        "Enter your choice (1 to 5):"
+      );
+
+      if (["1", "2", "3", "4"].includes(choice)) {
+        
+        let num1 = prompt("Enter the first number:");
+        let num2 = prompt("Enter the second number:");
+
+        
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+
+        
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Please enter valid numbers.");
+          continue; 
+        }
+
+        let result;
+
+        
+        switch (choice) {
+          case "1":
+            result = num1 + num2;
+            alert("Result: " + result);
+            break;
+          case "2":
+            result = num1 - num2;
+            alert("Result: " + result);
+            break;
+          case "3":
+            result = num1 * num2;
+            alert("Result: " + result);
+            break;
+          case "4":
+            if (num2 === 0) {
+              alert("Cannot divide by zero.");
+            } else {
+              result = num1 / num2;
+              alert("Result: " + result);
+            }
+            break;
+        }
+      } else if (choice === "5") {
+        alert("Exiting the calculator.");
+        break; 
+      } else {
+        alert("Invalid choice. Please enter a number from 1 to 5.");
+        continue; 
+      }
+
+    } 
+while (true); 
+  </script>
+</body>
+</html>
